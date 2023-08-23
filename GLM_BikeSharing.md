@@ -36,8 +36,13 @@ The main attributes :
 
 
 
-```r
-day_data=read_csv('/Users/gabrielecola/GLM_BikeSharing/Data/bike_rental.csv')
+```{r include=FALSE}
+library(igraph)
+library(ape)
+library(dplyr)
+library(visNetwork)
+library(ergm)
+library(dplyr)
 ```
 
 
