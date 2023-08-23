@@ -1,7 +1,7 @@
 ---
-title: "GLM applied to Bike Sharings"
+title: "Harry Potter Network Analysis"
 author: "Federico Moroni"
-date: "2023-07-12"
+date: "2023-07-06"
 output:  
   html_document:
     keep_md: true
@@ -9,40 +9,41 @@ output:
 ---
 
 
+The **Harry Potter Network Analysis** aims to delve into the intricate web of characters and connections within the Harry Potter universe.Beyond the surface level of this beloved fantasy series lies a complex web of relationships, interactions, and influences that extend far beyond the pages of the books or the frames of the films.
 
-#### 1. IMPORT DATASET
+This study aims to embark on a comprehensive network analysis of the Harry Potter universe, exploring the complex network of characters and their interactions. By employing sophisticated network analysis techniques, we seek to unveil the underlying structure and dynamics of this fantastical realm, shedding new light on the intricate relationships between its various components.
 
-This dataset contains the daily count of rental bikes between years 2011 and 2012 in Capital bikeshare system, which operates on some of the major cities of the State of Washington D.C, Virginia and Maryland.
-The dataset is given by the Laboratory of Artificial Intelligence and Decision support of the University of Porto.
+At the heart of this analysis lies the concept of network theory, which provides a powerful framework for understanding complex systems. By representing the Harry Potter universe as a network, where individual elements are nodes and their relationships are represented as edges, we can unravel the intricate network of connections that give life to this fictional world.
 
-The main attributes : 
+---
 
-- **instant** record index 
-- **dteday** : date 
-- **season** : 1 = spring, 2 = summer, 3 = fall, 4 = winter
-- **yr** : Year (0: 2011, 1:2012) 
-- **mnth** : Month ( 1 to 12) 
-- **holiday** : whether the day is considered a holiday or not
-- **workingday**: if day is neither weekend nor holiday is 1, otherwise is 0
-- **weekday**: day of the week 
-- **weathersit**: Weather ( 1:Clear,2: Cloudy,3:Rain)
-- **temp**: temperature in Celsius (normalized)
-- **atemp**:"feels like" temperature in Celsius(normalized)
-- **hum**: relative humidity
-- **windspeed**: normalized wind speed.
-- **casual**: count of casual users
-- **registered**: count of registered users 
-- **cnt**: count of total rental bikes including both casual and registered 
+<H1 align=center>Structure</H1>
 
+0. *Network Representation*: transform the data into a suitable network representation. Represent the entities as nodes and the relationships as edges or links between the nodes. 
 
+1. *Network Visualization*: our first objective is to visually represent the intricate web of connections within the Harry Potter Network. By creating a visual representation, we can gain a comprehensive overview of the character connections, identify key figures, and discover clusters or groups of characters with significant relationships.
+
+2. *Network Analysis*: through the calculation of centrality measures, such as degree centrality, betweenness centrality, closeness centrality, and pagerank centrality, we aim to identify the most influential and prominent characters in the Harry Potter Network. This analysis will reveal characters who play crucial roles in connecting different parts of the network and those who have the highest overall influence within the narrative.
+
+3. *Structural Analysis*: we will explore the structural properties of the Harry Potter Network, utilizing statistics such as diameter, mean distance and transitivity. By examining these measures, we can describe the overall cohesion and complexity of the network, uncover recurring patterns, and reveal narrative themes and character dynamics.
+
+4. *Network modeling*: to understand the underlying processes that generate the connections within the Harry Potter Network, we will employ an Exponential Random Graph Model (ERGM). By fitting the model to our dataset, we can estimate the probabilities of specific types of connections and gain insights into the mechanisms that shape the network's structure.
+
+---
 
 ```r
-day_data=read_csv('/Users/gabrielecola/GLM_BikeSharing/Data/bike_rental.csv')
+library(igraph)
+library(ape)
+library(dplyr)
+library(visNetwork)
+library(ergm)
+library(dplyr)
 ```
 
 
 ```r
-head(day_data)
+nodes = read.csv('characters.csv')
+table(is.na(nodes))
 ```
 
 ```
