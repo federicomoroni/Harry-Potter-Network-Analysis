@@ -47,17 +47,8 @@ table(is.na(nodes))
 ```
 
 ```
-## # A tibble: 6 × 16
-##   instant dteday     season    yr  mnth holiday weekday workingday weathersit
-##     <dbl> <date>      <dbl> <dbl> <dbl>   <dbl>   <dbl>      <dbl>      <dbl>
-## 1       1 2011-01-01      1     0     1       0       6          0          2
-## 2       2 2011-01-02      1     0     1       0       0          0          2
-## 3       3 2011-01-03      1     0     1       0       1          1          1
-## 4       4 2011-01-04      1     0     1       0       2          1          1
-## 5       5 2011-01-05      1     0     1       0       3          1          1
-## 6       6 2011-01-06      1     0     1       0       4          1          1
-## # ℹ 7 more variables: temp <dbl>, atemp <dbl>, hum <dbl>, windspeed <dbl>,
-## #   casual <dbl>, registered <dbl>, cnt <dbl>
+##   FALSE 
+##    195
 ```
 
 
